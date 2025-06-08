@@ -20,11 +20,13 @@
                 </Grid.RowDefinitions>
 
                 <Button Content="BÉRLÉS" 
-                        Foreground="#ECFDF5"
-                        Background="#047857"
+                        Foreground="#047857"
+                        Background="#ECFDF5"
                         FontSize="20" 
                         FontWeight="Bold"
-                        BorderBrush="#047857"/>
+                        BorderBrush="#047857"
+                        x:Name="berlesBTN"
+                        Click="berlesBTN_Click"/>
                 <Button Content="KÁRESEMÉNYEK" 
                         Foreground="#047857"
                         Background="#ECFDF5"
@@ -40,7 +42,9 @@
                         FontSize="20" 
                         FontWeight="Bold"
                         Grid.Column="2"
-                       BorderBrush="#047857"/>
+                       BorderBrush="#047857"
+                        x:Name="jarmuveinkBTN"
+                        Click="jarmuveinkBTN_Click"/>
                 <Image Width="60" 
                        Grid.Column="3">
                     <Image.Source>
@@ -53,95 +57,7 @@
             </Grid>
         </StackPanel>
 
-        <StackPanel Margin="20 40 0 0">
-            <TextBlock Text="Teljes Név" FontSize="20"/>
-            <TextBox x:Name="teljesNev"
-                     Width="300"
-                     HorizontalAlignment="Left"
-                     Margin="0 0 0 15" FontSize="20"/>
-
-            <TextBlock Text="Ülések száma" FontSize="20"/>
-            <TextBox x:Name="szemelySzam"
-                     Width="70"
-                     HorizontalAlignment="Left"
-                     Margin="0 0 0 15"
-                     FontSize="20"/>
-
-            <TextBlock Text="Időtartam (nap)" FontSize="20"/>
-            <TextBox x:Name="idoTartam"
-                     Width="120"
-                     HorizontalAlignment="Left"
-                     Margin="0 0 0 15" FontSize="20"/>
-
-            <TextBlock Text="Telefonszám" FontSize="20"/>
-            <TextBox x:Name="telefonSzam"
-                     Width="200"
-                     HorizontalAlignment="Left"
-                     Margin="0 0 0 15" FontSize="20"/>
-
-            <WrapPanel Margin="0 30">
-                <CheckBox x:Name="elfogadta" Margin="0, 0, 10, 0"/>
-                <TextBlock Text="Elfogadom a használati feltételeket, és kiejelntem, hogy elmúltam 18 éves."
-                           FontSize="13"/>
-
-            </WrapPanel>
-
-            <WrapPanel HorizontalAlignment="Center">
-                <Button Width="150"
-                    Height="30"
-                    Content="Rögzítés"
-                    FontSize="18"
-                    FontWeight="Medium"
-                    Background="#047857"
-                    Foreground="White"
-                    HorizontalAlignment="Left"
-                    Margin="-20 0 20 0"
-                    x:Name="rogzitBTN"
-                    Click="rogzitBTN_Click"/>
-                <Button Width="150"
-                    Height="30"
-                    Content="Módosítás"
-                    FontSize="18"
-                    FontWeight="Medium"
-                    Background="Yellow"
-                    Foreground="#047857"
-                    HorizontalAlignment="Center"
-                    Margin="0 0 20 0"
-                    x:Name="modositBTN"
-                    Click="modositBTN_Click"/>
-                <Button Width="150"
-                    Height="30"
-                    Content="Törlés"
-                    FontSize="18"
-                    FontWeight="Medium"
-                    Background="red"
-                    Foreground="White"
-                    HorizontalAlignment="Right"
-                    x:Name="torlesBTN"
-                    Click="torlesBTN_Click"/>
-            </WrapPanel>
-
-
-
+        <StackPanel Margin="20 40 0 0" x:Name="userControlPanel">
         </StackPanel>
-
-        <DataGrid Margin="15 30" x:Name="berlesDataGrid" SelectionChanged="berlesDataGrid_SelectionChanged">
-            <DataGrid.Columns>
-                <!--<DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
-
-                <DataGridTextColumn Header="Teljes Név" 
-                                    Binding="{Binding TeljesNev}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Ülések száma" 
-                                    Binding="{Binding UlesekSzama}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Időtartam" 
-                                    Binding="{Binding IdoTartam}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Telefonszám" 
-                                    Binding="{Binding TelefonSzam}"></DataGridTextColumn>-->
-
-
-
-            </DataGrid.Columns>
-
-        </DataGrid>
     </StackPanel>
 </Window>

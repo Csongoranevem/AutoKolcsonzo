@@ -1,0 +1,100 @@
+﻿<UserControl x:Class="WpfApp1.userControls.UserControlKarEsemyenyek"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp1.userControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel>
+        <TextBlock Text="Teljes Név" FontSize="20"/>
+        <TextBox x:Name="teljesNev"
+                     Width="300"
+                     HorizontalAlignment="Left"
+                     Margin="0 0 0 15" FontSize="20"/>
+
+        <TextBlock Text="Autó típusa" FontSize="20"/>
+        <TextBox x:Name="autoTipus"
+                     Width="300"
+                     HorizontalAlignment="Left"
+                     Margin="0 0 0 15"
+                     FontSize="20"/>
+
+        <TextBlock Text="Káresemény típusa" FontSize="20"/>
+        <TextBox x:Name="karTipus"
+                     Width="300"
+                     HorizontalAlignment="Left"
+                     Margin="0 0 0 15" FontSize="20"/>
+
+        <TextBlock Text="Telefonszám" FontSize="20"/>
+        <TextBox x:Name="telefonSzam"
+                     Width="200"
+                     HorizontalAlignment="Left"
+                     Margin="0 0 0 15" FontSize="20"/>
+
+        <WrapPanel Margin="0 30">
+            <CheckBox x:Name="balesetVolt" Margin="0, 0, 10, 0"/>
+            <TextBlock Text="Közúti baleset volt (csak akor jelölje be ezt, ha az autó közúton haladás során sérült meg, külső tényező miatt)"
+                           FontSize="13"/>
+
+        </WrapPanel>
+
+        <WrapPanel HorizontalAlignment="Center">
+            <Button Width="150"
+                    Height="30"
+                    Content="Rögzítés"
+                    FontSize="18"
+                    FontWeight="Medium"
+                    Background="#047857"
+                    Foreground="White"
+                    HorizontalAlignment="Left"
+                    Margin="-20 0 20 0"
+                    x:Name="rogzitBTN"
+                    Click="rogzitBTN_Click_1"/>
+            <Button Width="150"
+                    Height="30"
+                    Content="Módosítás"
+                    FontSize="18"
+                    FontWeight="Medium"
+                    Background="Yellow"
+                    Foreground="#047857"
+                    HorizontalAlignment="Center"
+                    Margin="0 0 20 0"
+                    x:Name="modositBTN"
+                    Click="modositBTN_Click_1"/>
+            <Button Width="150"
+                    Height="30"
+                    Content="Törlés"
+                    FontSize="18"
+                    FontWeight="Medium"
+                    Background="red"
+                    Foreground="White"
+                    HorizontalAlignment="Right"
+                    x:Name="torlesBTN"
+                    Click="torlesBTN_Click_1"/>
+        </WrapPanel>
+
+        <DataGrid Margin="15 30" 
+                  AutoGenerateColumns="False"
+                  x:Name="karEsemenyDataGrid" 
+                  SelectionChanged="karEsemenyDataGrid_SelectionChanged">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="#ECFDF5"/>
+                    <Setter Property="Foreground" Value="#047857"/>
+                    <Setter Property="FontSize" Value="15"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Teljes Név" Binding="{Binding TeljesNev}" Width="*"/>
+                <DataGridTextColumn Header="Autó Típusa" Binding="{Binding AutoTipus}" Width="*"/>
+                <DataGridTextColumn Header="Kár típusa" Binding="{Binding KarTipus}" Width="*"/>
+                <DataGridTextColumn Header="Telefonszám" Binding="{Binding TelefonSzam}" Width="*"/>
+                <DataGridTextColumn Header="Baleset Volt?" Binding="{Binding Baleset}" Width="*"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
+    </StackPanel>
+
+</UserControl>
