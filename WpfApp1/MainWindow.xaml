@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="750" Width="650">
+        Title="MainWindow" Height="750" Width="700">
     <StackPanel>
         <StackPanel Name="menu" Background="#ECFDF5">
             <Grid Height="70">
@@ -31,7 +31,9 @@
                         FontSize="20" 
                         FontWeight="Bold"
                         Grid.Column="1"
-                        BorderBrush="#047857"/>
+                        BorderBrush="#047857"
+                        x:Name="karEsemenyBTN"
+                        Click="karEsemenyBTN_Click"/>
                 <Button Content="JÁRMŰVEINK" 
                         Foreground="#047857"
                         Background="#ECFDF5"
@@ -93,7 +95,9 @@
                     Background="#047857"
                     Foreground="White"
                     HorizontalAlignment="Left"
-                    Margin="-20 0 20 0"/>
+                    Margin="-20 0 20 0"
+                    x:Name="rogzitBTN"
+                    Click="rogzitBTN_Click"/>
                 <Button Width="150"
                     Height="30"
                     Content="Módosítás"
@@ -102,7 +106,9 @@
                     Background="Yellow"
                     Foreground="#047857"
                     HorizontalAlignment="Center"
-                    Margin="0 0 20 0"/>
+                    Margin="0 0 20 0"
+                    x:Name="modositBTN"
+                    Click="modositBTN_Click"/>
                 <Button Width="150"
                     Height="30"
                     Content="Törlés"
@@ -110,15 +116,32 @@
                     FontWeight="Medium"
                     Background="red"
                     Foreground="White"
-                    HorizontalAlignment="Right"/>
+                    HorizontalAlignment="Right"
+                    x:Name="torlesBTN"
+                    Click="torlesBTN_Click"/>
             </WrapPanel>
 
 
 
         </StackPanel>
 
-        <DataGrid>
-            
+        <DataGrid Margin="15 30" x:Name="berlesDataGrid" SelectionChanged="berlesDataGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <!--<DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
+
+                <DataGridTextColumn Header="Teljes Név" 
+                                    Binding="{Binding TeljesNev}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Ülések száma" 
+                                    Binding="{Binding UlesekSzama}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Időtartam" 
+                                    Binding="{Binding IdoTartam}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Telefonszám" 
+                                    Binding="{Binding TelefonSzam}"></DataGridTextColumn>-->
+
+
+
+            </DataGrid.Columns>
+
         </DataGrid>
     </StackPanel>
 </Window>

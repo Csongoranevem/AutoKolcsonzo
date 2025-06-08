@@ -9,6 +9,11 @@ namespace WpfApp1
     /// </summary>
     public partial class App : Application
     {
+        static string dataBaseName = "Betegek.db";
+        static string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+        public static string databasePath = System.IO.Path.Combine(folderPath, dataBaseName);
+
     }
 
 }
