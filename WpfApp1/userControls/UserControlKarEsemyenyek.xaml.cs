@@ -82,8 +82,17 @@ namespace WpfApp1.userControls
         }
         private void rogzitBTN_Click_1(object sender, RoutedEventArgs e)
         {
+
+
             try
             {
+
+                if (string.IsNullOrEmpty(teljesNev.Text) || string.IsNullOrEmpty(autoTipus.Text) || string.IsNullOrEmpty(karTipus.Text) || string.IsNullOrEmpty(telefonSzam.Text))
+                {
+                    MessageBox.Show("Minden mezőt ki kell tölteni!");
+                    return;
+                }
+
                 KarEsemeny berles = new KarEsemeny()
                 {
                     TeljesNev = teljesNev.Text,

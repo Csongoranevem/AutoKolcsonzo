@@ -38,8 +38,10 @@ namespace WpfApp1
             userControlPanel.Children.Add(new userControls.UserControlJarmuvek());
         }
 
-
-
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            App.Current.Shutdown(); // Alkalmazás bezárása
+        }
     }
 
 }
