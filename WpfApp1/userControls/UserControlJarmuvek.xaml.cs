@@ -6,7 +6,7 @@ namespace WpfApp1.userControls
 {
     public partial class UserControlJarmuvek : UserControl
     {
-        private ObservableCollection<Auto> filteredAutok = new ObservableCollection<Auto>();
+        private ObservableCollection<Jarmu> filteredAutok = new ObservableCollection<Jarmu>();
 
         public UserControlJarmuvek()
         {
