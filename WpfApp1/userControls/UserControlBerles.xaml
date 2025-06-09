@@ -36,7 +36,7 @@
 
         <WrapPanel Margin="0 30">
             <CheckBox x:Name="elfogadta" Margin="0, 0, 10, 0"/>
-            <TextBlock Text="Elfogadom a használati feltételeket, és kiejelntem, hogy elmúltam 18 éves."
+            <TextBlock Text="Elfogadom a használati feltételeket, és kijelentem, hogy elmúltam 18 éves."
                            FontSize="13"/>
 
         </WrapPanel>
