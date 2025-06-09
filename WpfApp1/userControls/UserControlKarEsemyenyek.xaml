@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel>
+        <TextBlock Text="Káresemény bejelentése" FontSize="30" Margin="0 0 0 20" HorizontalAlignment="Center"/>
         <TextBlock Text="Teljes Név" FontSize="20"/>
         <TextBox x:Name="teljesNev"
                      Width="300"
@@ -74,7 +75,7 @@
                     Click="torlesBTN_Click_1"/>
         </WrapPanel>
 
-        <DataGrid Margin="15 30" 
+        <DataGrid Margin="0 20 15 0" 
                   AutoGenerateColumns="False"
                   x:Name="karEsemenyDataGrid" 
                   SelectionChanged="karEsemenyDataGrid_SelectionChanged">

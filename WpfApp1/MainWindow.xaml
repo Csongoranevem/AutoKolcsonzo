@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="750" Width="700">
+        Title="MainWindow" Height="750" Width="700"
+        WindowStartupLocation="CenterScreen">
     <StackPanel>
         <StackPanel Name="menu" Background="#ECFDF5">
             <Grid Height="70">
@@ -57,7 +58,24 @@
             </Grid>
         </StackPanel>
 
-        <StackPanel Margin="20 40 0 0" x:Name="userControlPanel">
+        <StackPanel Margin="20 40 0 0" x:Name="userControlPanel" HorizontalAlignment="Center">
+            <TextBlock Text="Üdvözöljük a Járműbérlés alkalmazásban!" 
+                       FontSize="24" 
+                       FontWeight="Bold" 
+                       HorizontalAlignment="Center" 
+                       Margin="0 0 0 20"/>
+            <TextBlock Text="Kérem válasszon a menüben található lehetőségek közül"
+                       FontSize="14" 
+                       FontWeight="Bold" 
+                       HorizontalAlignment="Center" 
+                       Margin="0 0 0 20"/>
         </StackPanel>
+        
+        <Button Width="80" Height="30" Content="Kilépés"
+                Background="Red"
+                Foreground="White"
+                FontWeight="Bold"
+                FontSize="15"
+                Margin="0 70"/>
     </StackPanel>
 </Window>
