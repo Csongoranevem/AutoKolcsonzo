@@ -76,10 +76,18 @@
                     Click="torlesBTN_Click"/>
         </WrapPanel>
 
+        <TextBlock Width="550" 
+                   TextWrapping="Wrap"
+                   HorizontalAlignment="Center" 
+                   Margin="0 20 0 10" 
+                   FontSize="20" 
+                   FontWeight="Bold"
+                   Text="Egy autó bérlése fix összeg minden járműnél. Minimum bérlési idő egy nap, melynek ára 15 000 Ft. 7 napi bérlés után minden nap 10%-os kedvezményt adunk."/>
         <DataGrid Margin="0 20 15 0" x:Name="berlesDataGrid" 
                   SelectionChanged="berlesDataGrid_SelectionChanged"
                   AutoGenerateColumns="False"
-                  Width="600">
+                  Width="610"
+                  Height="120">
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="DataGridColumnHeader">
                     <Setter Property="Background" Value="#ECFDF5"/>

@@ -5,78 +5,74 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="750" Width="700"
-        WindowStartupLocation="CenterScreen">
-    <StackPanel>
-        <StackPanel Name="menu" Background="#ECFDF5">
-            <Grid Height="70">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
+        Title="MainWindow" Height="800" Width="700"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ScrollViewer.VerticalScrollBarVisibility="Auto">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/resources/StyleResourceDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto">
+        <StackPanel>
+            <StackPanel Name="menu" Background="#ECFDF5">
+                <Grid Height="70">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
 
-                <Button Content="BÉRLÉS" 
-                        Foreground="#047857"
-                        Background="#ECFDF5"
-                        FontSize="20" 
-                        FontWeight="Bold"
-                        BorderBrush="#047857"
-                        x:Name="berlesBTN"
-                        Click="berlesBTN_Click"/>
-                <Button Content="KÁRESEMÉNYEK" 
-                        Foreground="#047857"
-                        Background="#ECFDF5"
-                        FontSize="20" 
-                        FontWeight="Bold"
-                        Grid.Column="1"
-                        BorderBrush="#047857"
-                        x:Name="karEsemenyBTN"
-                        Click="karEsemenyBTN_Click"/>
-                <Button Content="JÁRMŰVEINK" 
-                        Foreground="#047857"
-                        Background="#ECFDF5"
-                        FontSize="20" 
-                        FontWeight="Bold"
-                        Grid.Column="2"
-                       BorderBrush="#047857"
-                        x:Name="jarmuveinkBTN"
-                        Click="jarmuveinkBTN_Click"/>
-                <Image Width="60" 
-                       Grid.Column="3">
-                    <Image.Source>
-                        <BitmapImage 
-                            DecodePixelWidth="300" 
-                            UriSource="images/logo.png"/>
-                    </Image.Source>
-                </Image>
+                    <Button Content="BÉRLÉS" 
+                            x:Name="berlesBTN"
+                            Grid.Column="0"
+                            Click="berlesBTN_Click"/>
+                    <Button Content="KÁRESEMÉNYEK" 
+                            x:Name="karEsemenyBTN"
+                            Grid.Column="1"
+                            Click="karEsemenyBTN_Click"/>
+                    <Button Content="JÁRMŰVEINK" 
+                            x:Name="jarmuveinkBTN"
+                            Click="jarmuveinkBTN_Click"/>
+                    <Image Width="60" 
+                           Grid.Column="3">
+                        <Image.Source>
+                            <BitmapImage 
+                                DecodePixelWidth="300" 
+                                UriSource="images/logo.png"/>
+                        </Image.Source>
+                    </Image>
 
-            </Grid>
+                </Grid>
+            </StackPanel>
+
+            <StackPanel Margin="20 40 0 0" x:Name="userControlPanel" HorizontalAlignment="Center">
+                <TextBlock Text="Üdvözöljük a Járműbérlés alkalmazásban!" 
+                           FontSize="24"
+                           FontWeight="Bold" 
+                           HorizontalAlignment="Center" 
+                           Margin="0 0 0 20"/>
+                <TextBlock Text="Kérem válasszon a menüben található lehetőségek közül"
+                           FontSize="14" 
+                           FontWeight="Bold" 
+                           HorizontalAlignment="Center" 
+                           Margin="0 0 0 20"/>
+            </StackPanel>
+
+            <Button Width="80" Height="30" Content="Kilépés"
+                    Background="Red"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    FontSize="15"
+                    Margin="0 40"
+                    Click="Button_Click"/>
         </StackPanel>
-
-        <StackPanel Margin="20 40 0 0" x:Name="userControlPanel" HorizontalAlignment="Center">
-            <TextBlock Text="Üdvözöljük a Járműbérlés alkalmazásban!" 
-                       FontSize="24" 
-                       FontWeight="Bold" 
-                       HorizontalAlignment="Center" 
-                       Margin="0 0 0 20"/>
-            <TextBlock Text="Kérem válasszon a menüben található lehetőségek közül"
-                       FontSize="14" 
-                       FontWeight="Bold" 
-                       HorizontalAlignment="Center" 
-                       Margin="0 0 0 20"/>
-        </StackPanel>
-        
-        <Button Width="80" Height="30" Content="Kilépés"
-                Background="Red"
-                Foreground="White"
-                FontWeight="Bold"
-                FontSize="15"
-                Margin="0 70"
-                Click="Button_Click"/>
-    </StackPanel>
+    </ScrollViewer>
 </Window>

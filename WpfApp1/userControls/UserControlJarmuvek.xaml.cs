@@ -36,29 +36,68 @@ namespace WpfApp1.userControls
 
         private void RendezesComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            markaComboBox.SelectedItem = null; // Nem lehet kiválasztva a márka, ha gyártási év szerint filterezünk
-
 
             filteredAutok.Clear();
-            var ev = RendezesComboBox.SelectedItem;
-            foreach (var auto in App.Autok.OrderBy(a => a.GyartasiEv).Where(a => a.GyartasiEv == (int)ev))
+            // Szűrés a gyártási év szerint
+            if (markaComboBox.SelectedItem != null)
             {
-                filteredAutok.Add(auto);
+                var ev =Convert.ToInt32(RendezesComboBox.SelectedItem);
+                var mark = markaComboBox.SelectedItem as string;
+                foreach (var auto in App.Autok.Where(a => a.GyartasiEv == ev && a.Marka == mark))
+                {
+                    filteredAutok.Add(auto);
+                }
+
+            }
+
+            else
+            {
+                var ev = Convert.ToInt32(RendezesComboBox.SelectedItem);
+                foreach (var auto in App.Autok.Where(a => a.GyartasiEv == ev))
+                {
+                    filteredAutok.Add(auto);
+                }
+
             }
         }
 
         private void sorrendComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            filteredAutok.Clear();
+            List<Jarmu> filterBackup = filteredAutok.ToList();
+
             if (sorrendComboBox.SelectedItem == "Növekvő")
             {
-                foreach (var auto in App.Autok.OrderBy(a => a.GyartasiEv))
+                filterBackup = filterBackup.OrderBy(a => a.GyartasiEv).ToList();
+                filteredAutok.Clear();
+                foreach (var auto in filterBackup)
+                {
                     filteredAutok.Add(auto);
+
+
+                }
             }
             else if (sorrendComboBox.SelectedItem == "Csökkenő")
             {
-                foreach (var auto in App.Autok.OrderByDescending(a => a.GyartasiEv))
+                filterBackup = filterBackup.OrderByDescending(a => a.GyartasiEv).ToList();
+                filteredAutok.Clear();
+                foreach (var auto in filterBackup)
+                {
                     filteredAutok.Add(auto);
+                }
+            }
+        }
+
+        private void markaTorlesBTN_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            markaComboBox.SelectedItem = null;
+            RendezesComboBox.SelectedItem = null;
+
+
+            filteredAutok.Clear();
+            // Visszaállítjuk az összes autót, ha a márka törlés gombot nyomják
+            foreach (var auto in App.Autok)
+            {
+                filteredAutok.Add(auto);
             }
         }
     }

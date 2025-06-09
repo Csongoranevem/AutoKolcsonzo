@@ -59,28 +59,36 @@ namespace WpfApp1.userControls
 
         private void torlesBTN_Click(object sender, RoutedEventArgs e)
         {
-            using (SQLite.SQLiteConnection sQLiteConnection = new SQLite.SQLiteConnection(App.databasePath))
+
+            if (berlesDataGrid.SelectedItem != null)
             {
-                sQLiteConnection.CreateTable<Berles>();
-                sQLiteConnection.Delete(kivalasztottBerles);
+                using (SQLite.SQLiteConnection sQLiteConnection = new SQLite.SQLiteConnection(App.databasePath))
+                {
+                    sQLiteConnection.CreateTable<Berles>();
+                    sQLiteConnection.Delete(kivalasztottBerles);
+                }
+                ReadDatabase();
             }
-            ReadDatabase();
         }
 
         private void modositBTN_Click(object sender, RoutedEventArgs e)
         {
-            kivalasztottBerles.TeljesNev = teljesNev.Text;
-            kivalasztottBerles.UlesekSzama = Convert.ToInt32(szemelySzam.Text);
-            kivalasztottBerles.Idotartam = Convert.ToInt32(idoTartam.Text);
-            kivalasztottBerles.TelefonSzam = telefonSzam.Text;
-
-            using (SQLite.SQLiteConnection sQLiteConnection = new SQLite.SQLiteConnection(App.databasePath))
+            if (berlesDataGrid.SelectedItem != null)
             {
-                sQLiteConnection.CreateTable<Berles>();
-                sQLiteConnection.Update(kivalasztottBerles);
-            }
+                kivalasztottBerles.TeljesNev = teljesNev.Text;
+                kivalasztottBerles.UlesekSzama = Convert.ToInt32(szemelySzam.Text);
+                kivalasztottBerles.Idotartam = Convert.ToInt32(idoTartam.Text);
+                kivalasztottBerles.TelefonSzam = telefonSzam.Text;
 
-            ReadDatabase();
+                using (SQLite.SQLiteConnection sQLiteConnection = new SQLite.SQLiteConnection(App.databasePath))
+                {
+                    sQLiteConnection.CreateTable<Berles>();
+                    sQLiteConnection.Update(kivalasztottBerles);
+                }
+
+                ReadDatabase();
+
+            }
         }
 
         private void rogzitBTN_Click(object sender, RoutedEventArgs e)
@@ -119,19 +127,29 @@ namespace WpfApp1.userControls
 
         private void berlesDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            rogzitBTN.Visibility = Visibility.Visible;
-            modositBTN.Visibility = Visibility.Visible;
-            torlesBTN.Visibility = Visibility.Visible;
-
 
             if (berlesDataGrid.SelectedItem != null)
             {
-                kivalasztottBerles = (Berles)berlesDataGrid.SelectedItem;
-                teljesNev.Text = kivalasztottBerles.TeljesNev;
-                szemelySzam.Text = Convert.ToString(kivalasztottBerles.UlesekSzama);
-                idoTartam.Text = Convert.ToString(kivalasztottBerles.Idotartam);
-                telefonSzam.Text = kivalasztottBerles.TelefonSzam;
+                try
+                {
+                    rogzitBTN.Visibility = Visibility.Visible;
+                    modositBTN.Visibility = Visibility.Visible;
+                    torlesBTN.Visibility = Visibility.Visible;
 
+                    kivalasztottBerles = (Berles)berlesDataGrid.SelectedItem;
+                    teljesNev.Text = kivalasztottBerles.TeljesNev;
+                    szemelySzam.Text = Convert.ToString(kivalasztottBerles.UlesekSzama);
+                    idoTartam.Text = Convert.ToString(kivalasztottBerles.Idotartam);
+                    telefonSzam.Text = kivalasztottBerles.TelefonSzam;
+
+
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("nem tudsz üres sort kiválasztani");
+                    berlesDataGrid.SelectedItem = null;
+                }
             }
         }
     }

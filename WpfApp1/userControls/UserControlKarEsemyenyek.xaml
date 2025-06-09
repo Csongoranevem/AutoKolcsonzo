@@ -35,7 +35,7 @@
 
         <WrapPanel Margin="0 30">
             <CheckBox x:Name="balesetVolt" Margin="0, 0, 10, 0"/>
-            <TextBlock Text="Közúti baleset volt (csak akor jelölje be ezt, ha az autó közúton haladás során sérült meg, külső tényező miatt)"
+            <TextBlock Text="Közúti baleset volt (akkor jelölje be ezt, ha az autó közúton haladás során sérült meg, külső tényező miatt)"
                            FontSize="13"/>
 
         </WrapPanel>
@@ -78,7 +78,9 @@
         <DataGrid Margin="0 20 15 0" 
                   AutoGenerateColumns="False"
                   x:Name="karEsemenyDataGrid" 
-                  SelectionChanged="karEsemenyDataGrid_SelectionChanged">
+                  SelectionChanged="karEsemenyDataGrid_SelectionChanged"
+                  Height="120"
+                  Width="600">
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="DataGridColumnHeader">
                     <Setter Property="Background" Value="#ECFDF5"/>

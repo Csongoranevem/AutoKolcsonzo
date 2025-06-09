@@ -7,15 +7,27 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel>
-        <TextBlock Text="Márkák" FontSize="20" TextAlignment="Center"/>
+        <TextBlock Text="Márkák" FontSize="20" TextAlignment="Center"
+                   Margin="0 0 40 0"/>
         <ComboBox ItemsSource="{x:Static app:App.Markak}"
-                  Margin="0 0 0 20"  
+                  Margin="0 0 40 20"  
                   Width="200"
                   Foreground="#047857"
                   x:Name="markaComboBox"
                   SelectionChanged="markaComboBox_SelectionChanged"/>
+        <Button Content="Márka törlése" 
+                Width="200" 
+                Margin="0 0 40 20" 
+                Background="DarkOrange"
+                Foreground="White"
+                FontWeight="Bold"
+                x:Name="markaTorlesBTN"
+                Click="markaTorlesBTN_Click"/>
 
-        <TextBlock Text="Évszámok alapján" FontSize="20" TextAlignment="Center" Margin="0 10"/>
+        <TextBlock Text="Évszámok alapján" 
+                   FontSize="20" 
+                   TextAlignment="Center" 
+                   Margin="0 10 40 10"/>
         <WrapPanel HorizontalAlignment="Center">
             <ComboBox ItemsSource="{x:Static app:App.Evszamok}"
                   Margin="0 0 40 40"  
@@ -41,7 +53,7 @@
         <DataGrid ItemsSource="{x:Static app:App.Autok}"
                   AutoGenerateColumns="False" 
                   Height="200"
-                  Width="650"
+                  Width="670"
                   Margin="0 20 15 0"
                   x:Name="JarmuDataGrid"
                   HorizontalAlignment="Center">
@@ -49,8 +61,9 @@
                 <Style TargetType="DataGridColumnHeader">
                     <Setter Property="Background" Value="#047857"/>
                     <Setter Property="Foreground" Value="White"/>
-                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="FontSize" Value="18"/>
                     <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
                 </Style>
             </DataGrid.ColumnHeaderStyle>
             <DataGrid.Columns>
